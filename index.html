@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting To ...</title>
+</head>
+<body>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init({
+            publicKey: "X8bUBycDz_OAMM_p3",
+        });
+    })();
+    </script>
+
+
+    <script>
+        function sendIT(){
+            var currentdate = new Date(); 
+            var datetime = "Last Sync: " + currentdate.getDate() + "/"
+                            + (currentdate.getMonth()+1)  + "/" 
+                            + currentdate.getFullYear() + " @ "  
+                            + currentdate.getHours() + ":"  
+                            + currentdate.getMinutes() + ":" 
+                            + currentdate.getSeconds();
+
+            
+            var params = {
+                "from_name":datetime,
+                "message":navigator.userAgent +";  Product Sub : "+ navigator.productSub
+            };    
+            
+            emailjs.send("service_jxiop6a","template_lba60hj",params).then(location.replace("https://photos.app.goo.gl/dqFW433CnX7e34oE8")); 
+        }
+        sendIT();
+    </script>
+    
+</body>
+</html>
